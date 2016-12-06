@@ -13,11 +13,11 @@ BB::BB(int n)
 		paths[i] = new int[size];
 	}
 
-	route = new int[size];
+	route = new bool[size];
 	for (int i = 0; i < size; i++)
 		for (int j = 0; j < size; j++)
 		{
-			route[j] = 0;
+			route[j] = false;
 		}
 
 }
@@ -62,7 +62,7 @@ void BB::read()
 void BB::mcost(int n)
 {
 	int mcity;
-	route[n] = 1;
+	route[n] = true;
 	mcity = mincity(n);
 	stringstream temp;
 	temp << n + 1;
@@ -86,10 +86,10 @@ int BB::mincity(int n)
 	int min2;
 	for (int i = 1; i <= size; i++)
 	{
-		if ((paths[n][i] != 0) && (route[i] == 0))
-			if (paths[n][i]<min)
+		if ((paths[n][i] != 0) && (route[i] == false))
+			if (paths[n][i] < min)
 			{
-				min = paths[i][0] + paths[n][i];
+				min = paths[i][1] + paths[n][i];
 				min2 = paths[n][i];
 				city = i;
 			}

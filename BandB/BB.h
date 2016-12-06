@@ -10,7 +10,7 @@ public:
 	int getCost();
 	void read();
 	void mcost(int n);
-	int* route;
+	bool* route;
 	string name;
 	string path;
 	int size;
