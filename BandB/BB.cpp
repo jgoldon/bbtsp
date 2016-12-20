@@ -72,14 +72,14 @@ void BB::mcost(int n)
 		mcity = 1;
 		temp << mcity;
 		path += temp.str();
-		cost += paths[n][mcity];
+		cost += paths[n + 1][mcity];
 		return;
 	}
 	path += temp.str();
 	mcost(mcity);
 }
 
-int BB::mincity(int n)
+int BB::mincity(int n) 
 {
 	int city = 999;
 	int min = 999;
